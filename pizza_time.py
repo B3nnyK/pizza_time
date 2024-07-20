@@ -41,15 +41,15 @@ def draw_triangle(turtle_obj,base,color1,color2):
     turtle_obj.color(color1,color2)
     turtle_obj.begin_fill()
 
-    turtle_obj.forward(base)
+    turtle_obj.forward(base) #draw the base of the pizza
     turtle_obj.left(115)
     tri_point1 = t.pos()
 
-    turtle_obj.forward(base*1.2)
+    turtle_obj.forward(base*1.2) # draws the right side 
     turtle_obj.left(130)
     tri_point2 = t.pos()
 
-    turtle_obj.forward(base*1.2)
+    turtle_obj.forward(base*1.2) # draws the left side 
     turtle_obj.left(115)
     tri_point3 = t.pos()
 
@@ -58,31 +58,11 @@ def draw_triangle(turtle_obj,base,color1,color2):
 
 
 # defining a function that draws a nonagon:
-def draw_nonagon(turtle_obj, size, color1, color2):
+def draw_circle(turtle_obj, size, color1, color2):
 
     turtle_obj.color(color1, color2)
     turtle_obj.begin_fill()
-
-    turtle_obj.forward(size)
-    turtle_obj.left(40)
-
-    turtle_obj.forward(size)
-    turtle_obj.left(40)
-    turtle_obj.forward(size)
-    turtle_obj.left(40)
-    turtle_obj.forward(size)
-    turtle_obj.left(40)
-    turtle_obj.forward(size)
-    turtle_obj.left(40)
-    turtle_obj.forward(size)
-    turtle_obj.left(40)
-    turtle_obj.forward(size)
-    turtle_obj.left(40)
-    turtle_obj.forward(size)
-    turtle_obj.left(40)
-    turtle_obj.forward(size)
-    turtle_obj.left(40)
-
+    turtle_obj.circle(size,360)
     turtle_obj.end_fill()
 
 
@@ -123,7 +103,7 @@ while pepperoni_count < 8:
         t.penup()
         t.goto(x, y)
         t.pendown()
-        draw_nonagon(t, random.randint(4, 8), 'orange', 'brown')
+        draw_circle(t, random.randint(4, 8), 'orange', 'brown')
         pepperoni_count += 1
     
 
