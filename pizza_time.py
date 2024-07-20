@@ -42,15 +42,15 @@ def draw_triangle(turtle_obj,base,color1,color2):
     turtle_obj.begin_fill()
 
     turtle_obj.forward(base)
-    turtle_obj.left(120)
+    turtle_obj.left(115)
     tri_point1 = t.pos()
 
-    turtle_obj.forward(base)
-    turtle_obj.left(120)
+    turtle_obj.forward(base*1.2)
+    turtle_obj.left(130)
     tri_point2 = t.pos()
 
-    turtle_obj.forward(base)
-    turtle_obj.left(120)
+    turtle_obj.forward(base*1.2)
+    turtle_obj.left(115)
     tri_point3 = t.pos()
 
     turtle_obj.end_fill()
