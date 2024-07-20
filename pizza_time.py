@@ -55,41 +55,45 @@ def draw_triangle(turtle_obj,base,color1,color2):
 
     turtle_obj.end_fill()
 
+def draw_crust(turtle_obj,base,color1,color2):
+
+    t.goto(-200,-200)
+    turtle_obj.color(color1,color2)
+    turtle_obj.begin_fill()
+
+    turtle_obj.forward(base)
+    turtle_obj.left(115)
+    tri_point1 = t.pos()
+
+    turtle_obj.forward(base/7)
+    turtle_obj.left(65)
+    tri_point2 = t.pos()
+
+    turtle_obj.forward(base-(base*(1/9)))
+    turtle_obj.left(65)
+    tri_point3 = t.pos()
+
+    turtle_obj.forward(base/7)
+    turtle_obj.left(115)
+    tri_point2 = t.pos()
+
+    turtle_obj.end_fill()
 
 
 # defining a function that draws a nonagon:
-def draw_nonagon(turtle_obj, size, color1, color2):
+def draw_circle(turtle_obj, size, color1, color2):
 
     turtle_obj.color(color1, color2)
     turtle_obj.begin_fill()
-
-    turtle_obj.forward(size)
-    turtle_obj.left(40)
-
-    turtle_obj.forward(size)
-    turtle_obj.left(40)
-    turtle_obj.forward(size)
-    turtle_obj.left(40)
-    turtle_obj.forward(size)
-    turtle_obj.left(40)
-    turtle_obj.forward(size)
-    turtle_obj.left(40)
-    turtle_obj.forward(size)
-    turtle_obj.left(40)
-    turtle_obj.forward(size)
-    turtle_obj.left(40)
-    turtle_obj.forward(size)
-    turtle_obj.left(40)
-    turtle_obj.forward(size)
-    turtle_obj.left(40)
-
+    turtle_obj.circle(size,360)
     turtle_obj.end_fill()
 
 
 
 
 # drawing triangle:
-draw_triangle(t,400, 'brown', 'tan')
+draw_triangle(t,400, 'Saddle brown', 'pale goldenrod')
+draw_crust(t,400,'Saddle brown','Saddle brown')
 
 #defining a function to calculate and return the area of a triangle given the coordinates of 3 points:
 def triangle_area(x1,y1,x2,y2,x3,y3):
@@ -123,7 +127,7 @@ while pepperoni_count < 8:
         t.penup()
         t.goto(x, y)
         t.pendown()
-        draw_nonagon(t, random.randint(4, 8), 'orange', 'brown')
+        draw_circle(t, random.randint(4, 8), 'orange', 'brown')
         pepperoni_count += 1
     
 
