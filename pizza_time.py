@@ -63,19 +63,19 @@ def draw_crust(turtle_obj,base,color1,color2):
     turtle_obj.begin_fill()
 
     turtle_obj.forward(base)
-    turtle_obj.left(115)
+    turtle_obj.left(295)
     tri_point1 = t.pos()
 
     turtle_obj.forward(base/7)
-    turtle_obj.left(65)
+    turtle_obj.left(245)
     tri_point2 = t.pos()
 
-    turtle_obj.forward(base-(base*(1/9)))
-    turtle_obj.left(65)
+    turtle_obj.forward(base+(base*(1/7.2)))
+    turtle_obj.left(245)
     tri_point3 = t.pos()
 
     turtle_obj.forward(base/7)
-    turtle_obj.left(115)
+    #turtle_obj.left(115)
     tri_point2 = t.pos()
 
     turtle_obj.end_fill()
