@@ -56,6 +56,7 @@ def draw_triangle(turtle_obj,base,color1,color2):
     turtle_obj.end_fill()
 
 def draw_crust(turtle_obj,base,color1,color2):
+  ##### EMR TO FIX THIS SO CRUST IS OUTSIDE PIZZA
 
     t.goto(-200,-200)
     turtle_obj.color(color1,color2)
