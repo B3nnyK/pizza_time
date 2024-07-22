@@ -133,6 +133,9 @@ while pepperoni_count < 10:
 
 
 
+# hide the turtle object
+t.hideturtle()
+
 # prevent the window from automatically closing when finished. 
 turtle.done()
 
