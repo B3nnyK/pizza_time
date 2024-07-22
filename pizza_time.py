@@ -21,7 +21,7 @@ turtle.Screen().bgcolor('black')
 
 # creating our turtle object and setting its speed:
 t = turtle.Turtle()
-t.speed(1)
+t.speed(0)
 
 # global variables for the corner points of the triangle. 
 # These will be updated once the triangle has been drawn:
@@ -104,7 +104,6 @@ def triangle_area(x1,y1,x2,y2,x3,y3):
 
 # defining a function that checks to see if a given point(x,y) is within a given triangle made by three points.
 # default x,y values for the three triangle points are our global tri_point variables.
-# there is almost certainly a more elegant calculus based approach here?:
 def check_point_in_triangle( x, y, x1=tri_point1[0], y1=tri_point1[1], x2=tri_point2[0], y2=tri_point2[1], x3=tri_point3[0], y3=tri_point3[1] ):
      A  = triangle_area(x1, y1, x2, y2, x3, y3)
      A1 = triangle_area(x, y, x2, y2, x3, y3)
@@ -119,7 +118,7 @@ def check_point_in_triangle( x, y, x1=tri_point1[0], y1=tri_point1[1], x2=tri_po
 
 # drawing pepperonis:
 pepperoni_count = 0
-while pepperoni_count < 8:
+while pepperoni_count < 10:
     x = random.randint(-200,200)
     y = random.randint(-200,200)
 
@@ -128,7 +127,7 @@ while pepperoni_count < 8:
         t.penup()
         t.goto(x, y)
         t.pendown()
-        draw_circle(t, random.randint(4, 8), 'orange', 'brown')
+        draw_circle(t, random.randint(10, 16), 'orange', 'brown')
         pepperoni_count += 1
     
 
@@ -144,3 +143,4 @@ turtle.done()
 # This means some pepperoni slices are hanging off the slice. Ultimately we'd like more than 50% of each slice to be within the bounds of the triangle.
 # We would also like to implement a gui before drawing the slice, which allows us to input the size of the slice, the number of pepperonis, and eventually more topping options!
 # We also need to made a darker tan trapezoid at the base of the slice to represent the crust.
+
