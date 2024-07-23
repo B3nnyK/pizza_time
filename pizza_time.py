@@ -56,7 +56,6 @@ def draw_triangle(turtle_obj,base,color1,color2):
     turtle_obj.end_fill()
 
 def draw_crust(turtle_obj,base,color1,color2):
-  ##### EMR TO FIX THIS SO CRUST IS OUTSIDE PIZZA
 
     t.goto(-200,-200)
     turtle_obj.color(color1,color2)
@@ -75,13 +74,12 @@ def draw_crust(turtle_obj,base,color1,color2):
     tri_point3 = t.pos()
 
     turtle_obj.forward(base/7)
-    #turtle_obj.left(115)
     tri_point2 = t.pos()
 
     turtle_obj.end_fill()
 
 
-# defining a function that draws a nonagon:
+# defining a function that draws a circle:
 def draw_circle(turtle_obj, size, color1, color2):
 
     turtle_obj.color(color1, color2)
@@ -89,7 +87,20 @@ def draw_circle(turtle_obj, size, color1, color2):
     turtle_obj.circle(size,360)
     turtle_obj.end_fill()
 
+#defining a function that draws a shrimp
+def draw_shrimp(turtle_obj, size, color1, color2):
 
+    turtle_obj.color(color1, color2)
+    turtle_obj.begin_fill()
+    turtle_obj.circle(size,150)
+    turtle_obj.forward(25)
+    turtle_obj.left(180)
+    turtle_obj.circle((size/1.5),100)
+    turtle_obj.end_fill()
+
+# can use this later in addition to/instead of pepperonis to draw shrimps
+# tail/body should scale okay depending on size 
+# draw_shrimp(t,15, 'pink', 'lightpink')
 
 
 # drawing triangle:
