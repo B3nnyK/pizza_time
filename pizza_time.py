@@ -15,6 +15,7 @@
 
 import turtle
 import random
+import class_Slice
 
 # creating our background: 
 turtle.Screen().bgcolor('black')
@@ -23,129 +24,8 @@ turtle.Screen().bgcolor('black')
 t = turtle.Turtle()
 t.speed(0)
 
-# global variables for the corner points of the triangle. 
-# These will be updated once the triangle has been drawn:
-tri_point1=(0.0,0.0)
-tri_point2=(0.0,0.0)
-tri_point3=(0.0,0.0)
-
-# defining a function that draws a triangle when passed a turtle object and triangle attributes
-# this function will also update the global variables for the corner points of the triangle:
-def draw_triangle(turtle_obj,base,color1,color2):
-    global tri_point1
-    global tri_point2
-    global tri_point3
-
-
-    t.goto(-200,-200)
-    turtle_obj.color(color1,color2)
-    turtle_obj.begin_fill()
-
-    turtle_obj.forward(base)
-    turtle_obj.left(115)
-    tri_point1 = t.pos()
-
-    turtle_obj.forward(base*1.2)
-    turtle_obj.left(130)
-    tri_point2 = t.pos()
-
-    turtle_obj.forward(base*1.2)
-    turtle_obj.left(115)
-    tri_point3 = t.pos()
-
-    turtle_obj.end_fill()
-
-def draw_crust(turtle_obj,base,color1,color2):
-
-    t.goto(-200,-200)
-    turtle_obj.color(color1,color2)
-    turtle_obj.begin_fill()
-
-    turtle_obj.forward(base)
-    turtle_obj.left(295)
-    tri_point1 = t.pos()
-
-    turtle_obj.forward(base/7)
-    turtle_obj.left(245)
-    tri_point2 = t.pos()
-
-    turtle_obj.forward(base+(base*(1/7.2)))
-    turtle_obj.left(245)
-    tri_point3 = t.pos()
-
-    turtle_obj.forward(base/7)
-    tri_point2 = t.pos()
-
-    turtle_obj.end_fill()
-
-
-# defining a function that draws a circle:
-def draw_circle(turtle_obj, size, color1, color2):
-
-    turtle_obj.color(color1, color2)
-    turtle_obj.begin_fill()
-    turtle_obj.circle(size,360)
-    turtle_obj.end_fill()
-
-#defining a function that draws a shrimp
-def draw_shrimp(turtle_obj, size, color1, color2):
-
-    turtle_obj.color(color1, color2)
-    turtle_obj.begin_fill()
-    turtle_obj.circle(size,150)
-    turtle_obj.forward(25)
-    turtle_obj.left(180)
-    turtle_obj.circle((size/1.5),100)
-    turtle_obj.end_fill()
-
-# can use this later in addition to/instead of pepperonis to draw shrimps
-# tail/body should scale okay depending on size 
-# draw_shrimp(t,15, 'pink', 'lightpink')
-
-
-# drawing triangle:
-draw_triangle(t,400, 'Saddle brown', 'pale goldenrod')
-draw_crust(t,400,'Saddle brown','Saddle brown')
-
-#defining a function to calculate and return the area of a triangle given the coordinates of 3 points:
-def triangle_area(x1,y1,x2,y2,x3,y3):
-    return abs((x1*(y2-y3) + x2 * (y3-y1) + x3 * (y1-y2)) / 2.0)
-
-
-
-# defining a function that checks to see if a given point(x,y) is within a given triangle made by three points.
-# default x,y values for the three triangle points are our global tri_point variables.
-def check_point_in_triangle( x, y, x1=tri_point1[0], y1=tri_point1[1], x2=tri_point2[0], y2=tri_point2[1], x3=tri_point3[0], y3=tri_point3[1] ):
-     A  = triangle_area(x1, y1, x2, y2, x3, y3)
-     A1 = triangle_area(x, y, x2, y2, x3, y3)
-     A2 = triangle_area(x1, y1, x, y, x3, y3)
-     A3 = triangle_area(x1, y1, x2, y2, x, y)
-
-     if A == A1 + A2 + A3:
-         return True
-     else:
-         return False
-
-
-# drawing pepperonis:
-pepperoni_count = 0
-while pepperoni_count < 10:
-    x = random.randint(-200,200)
-    y = random.randint(-200,200)
-
-    accurate = check_point_in_triangle(x,y)
-    if accurate == True:
-        t.penup()
-        t.goto(x, y)
-        t.pendown()
-        draw_circle(t, random.randint(16, 22), 'orange', 'brown')
-        pepperoni_count += 1
-    
-
-
-
-# hide the turtle object
-t.hideturtle()
+slice1 = class_Slice.Slice((-200,-200), t, 400, 'shrimp')
+slice1.draw()
 
 # prevent the window from automatically closing when finished. 
 turtle.done()
@@ -156,5 +36,4 @@ turtle.done()
 # Currently check_point_in_triangle() only checks whether the starting point for drawing the pepperoni is within the triangle...
 # This means some pepperoni slices are hanging off the slice. Ultimately we'd like more than 50% of each slice to be within the bounds of the triangle.
 # We would also like to implement a gui before drawing the slice, which allows us to input the size of the slice, the number of pepperonis, and eventually more topping options!
-# We also need to made a darker tan trapezoid at the base of the slice to represent the crust.
 
