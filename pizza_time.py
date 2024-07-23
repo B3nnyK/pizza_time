@@ -127,7 +127,7 @@ while pepperoni_count < 10:
         t.penup()
         t.goto(x, y)
         t.pendown()
-        draw_circle(t, random.randint(10, 16), 'orange', 'brown')
+        draw_circle(t, random.randint(16, 22), 'orange', 'brown')
         pepperoni_count += 1
     
 
